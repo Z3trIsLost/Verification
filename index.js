@@ -36,10 +36,11 @@ client.on('guildMemberAdd', async (member) => {
     const channel = member.guild.channels.cache.get(channelId);
 
     if (!channel) {
-      console.error('[ERROR] ما قدرش يلقى الروم، تأكد من الـ ID.');
+      console.error('[ERROR] ما قدرش يلقى الروم، تأكد من الـ ID تاع WELCOME_CHANNEL_ID.');
       return;
     }
 
+    // هنا استعملنا الباكتيك باش المتغيرات يخدمو نورمال
     const welcomeMessage = `👋 مرحبا بك \({member}! يرجى الدخول الى الفويس في الاسفل و انتظار احد اعضاء <@&\){roleId}> لتأكيد هويتك و شكرا على صبرك 🌹`;
 
     await channel.send(welcomeMessage);
