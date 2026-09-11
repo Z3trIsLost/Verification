@@ -48,7 +48,7 @@ client.on('guildMemberAdd', async (member) => {
     const channel = member.guild.channels.cache.get(channelId);
 
     if (channel) {
-      const welcomeMessage = `👋 مرحبا بك \{member} يرجى الدخول الى الفويس في الاسفل و انتظار احد اعضاء <@&{verificationRoleId}> لتأكيد هويتك و شكرا على صبرك 🌹`;
+      const welcomeMessage = `👋 مرحبا بك ${member}! يرجى الدخول الى الفويس في الاسفل و انتظار احد اعضاء <@&${verificationRoleId}> لتأكيد هويتك و شكرا على صبرك 🌹`;
       await channel.send(welcomeMessage);
       console.log(`[SUCCESS] تم الترحيب بالعضو الجديد: ${member.user.tag}`);
     } else {
