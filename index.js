@@ -1,6 +1,17 @@
 require('dotenv').config();
 const { Client, GatewayIntentBits } = require('discord.js');
+const express = require('express');
 
+// إعداد خادم الويب باش يبقى البوت أونلاين
+const app = express();
+app.get('/', (req, res) => {
+  res.send('البوت راهو خدام 24/7!');
+});
+app.listen(3000, () => {
+  console.log('[INFO] خادم الويب راهو شغال باش يستقبل البينق.');
+});
+
+// إعداد البوت
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
@@ -25,7 +36,7 @@ client.on('guildMemberAdd', async (member) => {
     const channel = member.guild.channels.cache.get(channelId);
 
     if (!channel) {
-      console.error('[ERROR] ما قدرش يلقى الروم، تأكد من الـ ID تاع WELCOME_CHANNEL_ID.');
+      console.error('[ERROR] ما قدرش يلقى الروم، تأكد من الـ ID.');
       return;
     }
 
