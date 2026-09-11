@@ -32,7 +32,7 @@ client.on('guildMemberAdd', async (member) => {
     }
 
     // 1. إعطاء الرتبة التلقائية (حط الـ ID تاع الرتبة هنا)
-    const AUTO_ROLE_ID = '123456789012345678';
+    const AUTO_ROLE_ID = '1548038145633951888';
     const roleToAdd = member.guild.roles.cache.get(AUTO_ROLE_ID);
     
     if (roleToAdd) {
