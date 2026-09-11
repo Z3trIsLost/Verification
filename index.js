@@ -25,8 +25,14 @@ client.once('ready', () => {
 
 client.on('guildMemberAdd', async (member) => {
   try {
+    // التكتّك إذا كان العضو الجديد هو بوت
+    if (member.user.bot) {
+      console.log(`[INFO] العضو الجديد هو بوت (${member.user.tag})، تم تجنب الترحيب والرتبة.`);
+      return;
+    }
+
     // 1. إعطاء الرتبة التلقائية (حط الـ ID تاع الرتبة هنا)
-    const AUTO_ROLE_ID = '1548038145633951888';
+    const AUTO_ROLE_ID = '123456789012345678';
     const roleToAdd = member.guild.roles.cache.get(AUTO_ROLE_ID);
     
     if (roleToAdd) {
